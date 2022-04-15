@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useRef } from 'react';
+import ImageSpeaker from './ImageSpeaker';
 
 const Speaker = ({
   first,
@@ -11,23 +12,15 @@ const Speaker = ({
   twitterHandle,
   sessions,
 }) => {
-  const imageRef = useRef(null);
   const primaryImage = `images/speaker-${id}.jpg`;
   const secondaryImage = `images/bw/speaker-${id}.jpg`;
 
   return (
     <di className='ui card'>
       <div className='image'>
-        <img
-          ref={imageRef}
-          alt=''
-          onMouseOver={() => {
-            imageRef.current.src = secondaryImage;
-          }}
-          onMouseOut={() => {
-            imageRef.current.src = primaryImage;
-          }}
-          src={primaryImage}
+        <ImageSpeaker
+          primaryImage={primaryImage}
+          secondaryImage={secondaryImage}
         />
       </div>
       <div className='content'>
