@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useRef } from 'react';
 
 const Speaker = ({
   first,
@@ -11,10 +11,24 @@ const Speaker = ({
   twitterHandle,
   sessions,
 }) => {
+  const imageRef = useRef(null);
+  const primaryImage = `images/speaker-${id}.jpg`;
+  const secondaryImage = `images/bw/speaker-${id}.jpg`;
+
   return (
     <di className='ui card'>
       <div className='image'>
-        <img alt='' src={`images/speaker-${id}.jpg`} />
+        <img
+          ref={imageRef}
+          alt=''
+          onMouseOver={() => {
+            imageRef.current.src = secondaryImage;
+          }}
+          onMouseOut={() => {
+            imageRef.current.src = primaryImage;
+          }}
+          src={primaryImage}
+        />
       </div>
       <div className='content'>
         <a href='#' className='header'>
