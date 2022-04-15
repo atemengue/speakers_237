@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Field from './components/Field';
-import { data } from './data';
 import Speakers from './components/Speakers';
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
     <div className='ui container'>
       <Field onChange={setTerm} value={term} label='Tapez votre clavier' />
       <div className='ui divider'></div>
-      <Speakers data={data} />
+      <Speakers />
     </div>
   );
 }
