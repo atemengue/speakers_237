@@ -11,6 +11,8 @@ const Speaker = ({
   id,
   twitterHandle,
   sessions,
+  favorite,
+  heartFavoriteHandler,
 }) => {
   const primaryImage = `images/speaker-${id}.jpg`;
   const secondaryImage = `images/bw/speaker-${id}.jpg`;
@@ -43,10 +45,25 @@ const Speaker = ({
         </span>
       </div>
       <div className='extra content'>
-        <a href='#'>
-          <i className='bullhorn icon'></i>
-          {sessions.length}
-        </a>
+        <div className='content'>
+          <span className='right floated'>
+            {favorite ? (
+              <i
+                data-sessionid={id}
+                onClick={(e) => heartFavoriteHandler(e, !favorite)}
+                className='red heart like icon'
+              ></i>
+            ) : (
+              <i
+                data-sessionid={id}
+                onClick={(e) => heartFavoriteHandler(e, !favorite)}
+                className='heart like icon'
+              ></i>
+            )}
+          </span>
+          <i className='comment icon'></i>
+          {sessions.length} sessions
+        </div>
       </div>
     </di>
   );

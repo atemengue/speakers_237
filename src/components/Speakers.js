@@ -19,7 +19,6 @@ const Speakers = ({ data }) => {
     axios
       .get('http://localhost:3001/speakers')
       .then((response) => {
-        console.log(response);
         setResults(response.data);
         setIsLoading(false);
       })
@@ -30,7 +29,7 @@ const Speakers = ({ data }) => {
 
   if (isLoading) return <UserPlaceHolder />;
 
-  return <SpeakerList speakers={results} />;
+  return <SpeakerList speakers={results} setResults={setResults} />;
 };
 
 export default Speakers;
