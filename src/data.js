@@ -9,6 +9,8 @@ export const data = [
     bio: 'CEO Combi-driver software consultant and UX designer',
     twitterHandle: 'miguel_foyou',
     favorite: true,
+    sat: true,
+    sum: false,
     sessions: [
       {
         id: '32',
@@ -47,6 +49,8 @@ export const data = [
     bio: 'Consultant, Fondateur de Mpondo Entreprise, Réseaux et Cloud',
     twitterHandle: 'arnol_mpondo',
     favorite: false,
+    sat: false,
+    sum: false,
     sessions: [
       {
         id: '1011',
@@ -77,6 +81,8 @@ export const data = [
     bio: 'Expert en relations internationales et études stratégiques',
     twitterHandle: 'boris_manang',
     favorite: true,
+    sat: true,
+    sum: true,
     sessions: [
       {
         id: '676',
@@ -115,6 +121,8 @@ export const data = [
     bio: 'Hacking Éthique | Pentesting | Audit Informatique | Cybersécurité',
     twitterHandle: 'david_perghaud',
     favorite: true,
+    sat: false,
+    sum: false,
     sessions: [
       {
         id: '12',
@@ -153,6 +161,8 @@ export const data = [
     company: 'Kelley Blue Book',
     twitterHandle: 'hermine_audrey',
     favorite: false,
+    sat: false,
+    sun: true,
     sessions: [
       {
         id: '1252',
@@ -191,6 +201,8 @@ export const data = [
     bio: 'Network Administrator | Network SECURITY | Instructor Cisco CCNA R&S, CCNA security',
     twitterHandle: 'jose_balla',
     favorite: true,
+    sat: true,
+    sum: true,
     sessions: [
       {
         id: '7548',
@@ -211,6 +223,8 @@ export const data = [
     bio: 'LoRa technology enthusiast (LPWAN), NetWork Expert, Software Developer',
     twitterHandle: 'junior_antoine',
     favorite: false,
+    sun: false,
+    sat: true,
     sessions: [
       {
         id: '4820',
@@ -240,6 +254,8 @@ export const data = [
     bio: 'Analyste, Full Stack Développeur, Agripreneur, Freestyleur .',
     twitterHandle: 'regis_ate',
     favorite: true,
+    sat: true,
+    sum: false,
     sessions: [
       {
         id: '7549',
@@ -260,6 +276,8 @@ export const data = [
     bio: 'Cisco Trainer, Junior network and security Support | CCNP Enterprise | CCNA Security | Cyberops Associate',
     twitterHandle: 'lionel_gweth',
     favorite: false,
+    sat: true,
+    sum: false,
     sessions: [
       {
         id: '944',
@@ -289,6 +307,8 @@ export const data = [
     bio: 'Ron teaches Object Oriented Analysis and Design at De Anza College ',
     twitterHandle: 'steve_nouyep',
     favorite: false,
+    sat: false,
+    sum: false,
     sessions: [
       {
         id: '86',
@@ -327,6 +347,8 @@ export const data = [
     bio: "Ron enseigne l'analyse et la conception orientées objet au College",
     twitterHandle: 'liliane_bekono',
     favorite: false,
+    sat: false,
+    sum: false,
     sessions: [
       {
         id: '86',
@@ -357,6 +379,8 @@ export const data = [
     bio: ' Gagnez en visibilité, notoriété et crédibilité 📌 Social Media Marketing / Copywriting / Stratégies Digitales / Créateur de contenu',
     twitterHandle: 'magazor',
     favorite: false,
+    sat: true,
+    sum: true,
     sessions: [
       {
         id: '86',
