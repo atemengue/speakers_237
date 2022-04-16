@@ -1,10 +1,10 @@
 /** @format */
 
-import React from 'react';
+import React, { useCallback } from 'react';
 import Speaker from './Speaker';
 
 const SpeakerList = ({ speakers, setResults }) => {
-  const heartFavoriteHandler = (e, favoriteValue) => {
+  const heartFavoriteHandler = useCallback((e, favoriteValue) => {
     e.preventDefault();
     const sessionId = parseInt(e.target.attributes['data-sessionid'].value);
     setResults(
@@ -15,7 +15,7 @@ const SpeakerList = ({ speakers, setResults }) => {
         return item;
       })
     );
-  };
+  }, []);
 
   return (
     <div className='ui four colunn stackable grid'>
