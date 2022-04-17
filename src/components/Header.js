@@ -1,6 +1,7 @@
 /** @format */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -13,19 +14,19 @@ export default function Header() {
         />
       </div>
       <div className='ui huge menu'>
-        <span to='/' className='active item'>
+        <Link to='/' className='active item'>
           Acceuil
-        </span>
-        <span to='/message' className='item'>
+        </Link>
+        <Link to='/message' className='item'>
           Laisser un message{' '}
-        </span>
-        <span to='/about' className='item'>
+        </Link>
+        <Link to='/about' className='item'>
           A propos
-        </span>
+        </Link>
         <div class='right menu'>
-          <span to='/about' className='item'>
+          <Link to='/donate' className='item'>
             Faire un don
-          </span>
+          </Link>
         </div>
       </div>
     </div>
