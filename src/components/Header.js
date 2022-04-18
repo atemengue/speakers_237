@@ -17,7 +17,7 @@ export default function Header() {
         <Link to='/' className='active item'>
           Acceuil
         </Link>
-        <Link to='/message' className='item'>
+        <Link to='/messages' className='item'>
           Laisser un message{' '}
         </Link>
         <Link to='/about' className='item'>

@@ -3,5 +3,5 @@
 import React from 'react';
 
 export default function About() {
-  return <div>A propos de nous</div>;
+  return <div className='ui container'>A propos de nous</div>;
 }

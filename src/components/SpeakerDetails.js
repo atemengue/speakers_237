@@ -1,48 +1,113 @@
 /** @format */
 
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function SpeakerDetail() {
-  return (
-    <div className='ui vertical segment'>
-      <div className='ui stackable grid'>
-        <div className='six wide column'>
-          <img
-            src='/images/dummy-speaker-image.jpg'
-            alt='detail profil'
-            className='ui image'
-          />
+  let params = useParams();
+  const { idSpeaker } = params;
+  const [speakerData, setSpeakerData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const fetchSpeaker = async (idSpeaker) => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/speakers/${idSpeaker}`
+      );
+      setSpeakerData(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+      // handleError
+    }
+  };
+
+  useEffect(() => {
+    fetchSpeaker(idSpeaker);
+  }, [idSpeaker]);
+
+  if (isLoading)
+    return (
+      <div className='ui segment'>
+        <div className='ui active inverted dimmer'>
+          <div className='ui text loader'>Loading</div>
         </div>
-        {/* ADD SEGMENT */}
-        <div className='ten wide column'>
-          <h1 className='ui header'>
-            <span className='sub'>Nom du speaker</span>
-          </h1>
-          <p className='ui text'>
-            Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-            ligula porta felis euismod semper. Praesent commodo cursus magna,
-            vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-            commodo. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-            vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-            amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
-            placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-            pharetra.
-          </p>
-          <p>
-            <div class='ui list'>
-              <div class='item'>
-                <i class='calendar icon'></i>
-                <div class='content'>
-                  <a class='header'>Rails powered by GlassFish</a>
-                  <div class='description'>
-                    An excellent polish restaurant, quick delivery and hearty,
-                    filling meals.
+        <p></p>
+      </div>
+    );
+
+  return (
+    <div className='ui container'>
+      <div className='ui vertical segment'>
+        <div className='ui stackable grid'>
+          <div className='six wide column'>
+            <img
+              src={`/images/speaker-${speakerData?.id}.jpg`}
+              alt='de profil du speaker'
+              className='ui image'
+            />
+          </div>
+          <div className='ten wide column'>
+            <h1 className='ui header'>
+              <span className='sub'>
+                {speakerData?.last}-{speakerData.first}
+              </span>
+            </h1>
+            <p className='ui text'>{speakerData?.bio}</p>
+            <p>
+              <div className='ui list'>
+                <div className='item'>
+                  <i className='large home icon'></i>
+                  <div className='content'>
+                    <span className='header'>{speakerData?.company}</span>
+                  </div>
+                </div>
+                <div className='item'>
+                  <i class='twitter large icon'></i>
+                  <div className='content'>
+                    <span className='header'>
+                      @{speakerData?.twitterHandle}
+                    </span>
                   </div>
                 </div>
               </div>
-            </div>
-          </p>
+              <div className='ui divider' />
+              <h2 class='ui header'>Sessions</h2>
+              {speakerData.sessions &&
+                speakerData?.sessions.map((session, index) => {
+                  return (
+                    <div className='ui list'>
+                      <div className='item'>
+                        <i className='map marker icon'></i>
+                        <div className='content'>
+                          <span className='header'>{session?.title}</span>
+                          <div className='ui list'>
+                            <div className='item'>
+                              <i class='calendar icon'></i>
+                              <div class='content'>{session?.eventYear}</div>
+                            </div>
+                            <div className='item'>
+                              <i class='location arrow icon'></i>
+                              <div class='content'>{session?.room?.name}</div>
+                            </div>
+                            <div className='item'>
+                              <i class='users icon'></i>
+                              <div class='content'>
+                                {session?.room?.capacity} places max
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </p>
+          </div>
         </div>
       </div>
     </div>
