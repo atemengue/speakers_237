@@ -14,7 +14,7 @@ export default function Header() {
         />
       </div>
       <div className='ui huge menu'>
-        <Link to='/' className='active item'>
+        <Link to='/' className='item'>
           Acceuil
         </Link>
         <Link to='/messages' className='item'>

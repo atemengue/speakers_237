@@ -23,17 +23,14 @@ function App() {
       <Routes>
         {/* Home */}
         <Route path='/' element={<Home />} />
-        {/* Message */}
+        {/* Message   */}
         <Route path='/messages' element={<Message />} />
 
         {/* A propos*/}
         <Route path='/about' element={<About />} />
 
         {/* Speaker Details */}
-        <Route path='/speakers' element={<SpeakerDetail />}>
-          <Route path=':idSpeaker' element={<SpeakerDetail />} />
-        </Route>
-
+        <Route path='/speakers/:idSpeaker' element={<SpeakerDetail />} />
         {/*  Faire un don*/}
         <Route path='/donate' element={<Donate />} />
         {/* 404 Page d'erreur */}

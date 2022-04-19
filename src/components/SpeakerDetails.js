@@ -3,6 +3,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Sessions from './Sessions';
 
 export default function SpeakerDetail() {
   let params = useParams();
@@ -77,35 +78,7 @@ export default function SpeakerDetail() {
               </div>
               <div className='ui divider' />
               <h2 class='ui header'>Sessions</h2>
-              {speakerData.sessions &&
-                speakerData?.sessions.map((session, index) => {
-                  return (
-                    <div className='ui list'>
-                      <div className='item'>
-                        <i className='map marker icon'></i>
-                        <div className='content'>
-                          <span className='header'>{session?.title}</span>
-                          <div className='ui list'>
-                            <div className='item'>
-                              <i class='calendar icon'></i>
-                              <div class='content'>{session?.eventYear}</div>
-                            </div>
-                            <div className='item'>
-                              <i class='location arrow icon'></i>
-                              <div class='content'>{session?.room?.name}</div>
-                            </div>
-                            <div className='item'>
-                              <i class='users icon'></i>
-                              <div class='content'>
-                                {session?.room?.capacity} places max
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+              <Sessions sessions={speakerData.sessions} />
             </p>
           </div>
         </div>
