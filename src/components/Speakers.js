@@ -12,6 +12,7 @@ const Speakers = ({ data }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [speakingSunday, setspeakingSunday] = useState(true);
   const [speakingSaturday, setspeakingSaturday] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   // utilisation du context
   const { showCheckbox } = useContext(SpeakerContext);
@@ -21,16 +22,28 @@ const Speakers = ({ data }) => {
     fetchSpeakerData();
   }, []);
 
-  const fetchSpeakerData = () => {
-    axios
-      .get('http://localhost:3001/speakers')
-      .then((response) => {
-        setResults(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        // setIsLoading(false);
-      });
+  // const fetchSpeakerData = () => {
+  //   axios
+  //     .get('http://localhost:3001/speakers')
+  //     .then((response) => {
+  //       setResults(response.data);
+  //       setIsLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       setIsLoading(false);
+  //       setIsError(true);
+  //     });
+  // };
+
+  const fetchSpeakerData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/speakers');
+      setResults(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true); // On peut faire une gestion globale des erreurs .
+    }
   };
 
   const handleChangeSaturday = () => {
@@ -62,6 +75,13 @@ const Speakers = ({ data }) => {
   const speakerListFiltered = isLoading ? [] : newSpeakList;
 
   if (isLoading) return <UserPlaceHolder />;
+
+  if (isError)
+    return (
+      <div style={{ color: 'red' }} className='ui text'>
+        Nous avons rencontré une erreur
+      </div>
+    );
 
   return (
     <div>
