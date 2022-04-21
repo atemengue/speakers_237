@@ -37,7 +37,9 @@ const Speakers = ({ data }) => {
 
   const fetchSpeakerData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/speakers');
+      const response = await axios.get(
+        'https://server-speakers.herokuapp.com/speakers'
+      );
       setResults(response.data);
       setIsLoading(false);
     } catch (error) {

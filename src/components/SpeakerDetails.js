@@ -16,7 +16,7 @@ export default function SpeakerDetail() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:3001/speakers/${idSpeaker}`
+        `https://server-speakers.herokuapp.com/speakers/${idSpeaker}`
       );
       setSpeakerData(response.data);
       setIsLoading(false);
