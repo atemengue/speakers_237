@@ -18,6 +18,8 @@ const SpeakerList = ({ speakers, setResults }) => {
   }, []);
 
   return (
+
+    
     <div className='ui four colunn stackable grid'>
       {speakers.map((speaker, index) => {
         return (

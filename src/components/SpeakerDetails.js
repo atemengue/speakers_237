@@ -41,7 +41,7 @@ export default function SpeakerDetail() {
       </div>
     );
 
-  return (
+  return (  
     <div className='ui container'>
       <div className='ui vertical segment'>
         <div className='ui stackable grid'>
@@ -62,7 +62,7 @@ export default function SpeakerDetail() {
             <p>
               <div className='ui list'>
                 <div className='item'>
-                  <i className='large home icon'></i>
+                  <i className='large map icon'></i>
                   <div className='content'>
                     <span className='header'>{speakerData?.company}</span>
                   </div>
