@@ -1,12 +1,18 @@
 /** @format */
 
 import React from 'react';
+import Field from './Field';
+import Footer from './Footer';
+import Header from './Header';
+import SpeakerList from './SpeakerList';
 
 function App() {
   return (
     <div>
-      <h1>ReactJS</h1>
-      <h2>Bonjour a tous!!</h2>
+      <Header />
+      <Field />
+      <SpeakerList />;
+      <Footer />
     </div>
   );
 }
