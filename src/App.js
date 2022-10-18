@@ -18,9 +18,9 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/ ' element={<About />} />
+        <Route path='/about ' element={<About />} />
         <Route path='/messages' element={<Messages />} />
-        <Route path='/speaker/:idSpeaker' element={<SpeakerInfo />} />
+        <Route path='/speakers/:id' element={<SpeakerInfo />} />
         <Route path='/donate' element={<Donate />} />
       </Routes>
       <Footer />
