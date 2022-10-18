@@ -3,22 +3,23 @@
 import React, { useEffect, useState } from 'react';
 import SpeakerUI from './SpeakerUI';
 
-// importer les data
-
 function SpeakerList() {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/speakers');
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      setIsError(true);
+    }
+  };
 
   useEffect(() => {
-    // zone d'execution
-    setLoad(true);
-    fetch('https://server-speakers.herokuapp.com/speakers')
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setLoad(false);
-      })
-      .catch();
+    fetchData();
   }, []);
 
   return (
@@ -31,7 +32,7 @@ function SpeakerList() {
           </div>
         </div>
       ) : (
-        <div className='container ui grid'>
+        <div className='ui grid'>
           {data.map(function (speaker, index) {
             return (
               <div key={index} className='four wide column'>

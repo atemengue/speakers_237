@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 const Field = () => {
-  const [term, setTerm] = useState('information');
+  const [term, setTerm] = useState('');
 
   function onChangeInput(event) {
     setTerm(event.target.value);
@@ -17,7 +17,6 @@ const Field = () => {
         type='text'
         placeholder='Search...'
       />
-      <div>valeur: {term}</div>
     </div>
   );
 };

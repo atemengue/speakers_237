@@ -1,17 +1,28 @@
 /** @format */
 
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import About from './components/About';
+import Donate from './components/Donate';
+import Home from './components/Home';
+import Messages from './components/Messages';
 import Field from './Field';
 import Footer from './Footer';
 import Header from './Header';
+import SpeakerInfo from './SpeakerInfo';
 import SpeakerList from './SpeakerList';
 
 function App() {
   return (
     <div>
       <Header />
-      <Field />
-      <SpeakerList />;
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/ ' element={<About />} />
+        <Route path='/messages' element={<Messages />} />
+        <Route path='/speaker/:idSpeaker' element={<SpeakerInfo />} />
+        <Route path='/donate' element={<Donate />} />
+      </Routes>
       <Footer />
     </div>
   );

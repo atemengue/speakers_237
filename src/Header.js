@@ -9,7 +9,7 @@ const Header = () => {
         <img
           className='ui image'
           alt='logo speakers 237'
-          src='/images/banner.png'
+          src='/images/SVCClogo.jpg'
         />
       </div>
       <div className='ui huge menu'>
