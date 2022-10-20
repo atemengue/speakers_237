@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { URL_SERVEUR } from './config';
 
-const speakerInfo = () => {
+const SpeakerInfo = () => {
   const { id } = useParams();
 
   const [speakerData, setSpeakerData] = useState({});
@@ -45,4 +45,4 @@ const speakerInfo = () => {
   );
 };
 
-export default speakerInfo;
+export default SpeakerInfo;
