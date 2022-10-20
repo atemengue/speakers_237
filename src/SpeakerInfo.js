@@ -1,5 +1,6 @@
 /** @format */
 
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { URL_SERVEUR } from './config';
@@ -10,12 +11,16 @@ const SpeakerInfo = () => {
   const [speakerData, setSpeakerData] = useState({});
 
   const fetchData = (id) => {
-    fetch(`${URL_SERVEUR}/speakers/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setSpeakerData(data);
-      })
-      .catch((error) => {});
+    axios.get(`${URL_SERVEUR}/speakers/${id}`).then((response) => {
+      setSpeakerData(response.data);
+    });
+
+    // fetch(`${URL_SERVEUR}/speakers/${id}`)
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setSpeakerData(data);
+    //   })
+    //   .catch((error) => {});
   };
 
   useEffect(() => {

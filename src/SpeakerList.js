@@ -1,6 +1,8 @@
 /** @format */
 
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { URL_SERVEUR } from './config';
 import SpeakerUI from './SpeakerUI';
 
 function SpeakerList() {
@@ -10,13 +12,22 @@ function SpeakerList() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/speakers');
-      const data = await response.json();
-      setData(data);
+      const response = await axios.get(`${URL_SERVEUR}/speakers`);
+      setData(response.data);
     } catch (error) {
       setIsError(true);
     }
   };
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(`${URL_SERVEUR}/speakers`);
+  //     const data = await response.json();
+  //     setData(data);
+  //   } catch (error) {
+  //     setIsError(true);
+  //   }
+  // };
 
   useEffect(() => {
     fetchData();
