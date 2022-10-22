@@ -1,9 +1,10 @@
 /** @format */
 
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import api from './api';
 import { URL_SERVEUR } from './config';
 import SpeakerUI from './SpeakerUI';
+import axios from 'axios';
 
 function SpeakerList() {
   const [data, setData] = useState([]);
@@ -12,22 +13,14 @@ function SpeakerList() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${URL_SERVEUR}/speakers`);
+       const response = await api.get('/speakers');
+
+    
       setData(response.data);
     } catch (error) {
       setIsError(true);
     }
   };
-
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch(`${URL_SERVEUR}/speakers`);
-  //     const data = await response.json();
-  //     setData(data);
-  //   } catch (error) {
-  //     setIsError(true);
-  //   }
-  // };
 
   useEffect(() => {
     fetchData();
