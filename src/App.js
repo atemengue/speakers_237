@@ -9,12 +9,19 @@ import Message from './components/Message';
 import About from './components/About';
 import Donate from './Donate';
 import SpeakerDetail from './components/SpeakerDetails';
+import Login from './components/Login';
 
 export const SpeakerContext = React.createContext();
 
 function App() {
   const [term, setTerm] = useState();
   const confValue = { showCheckbox: true };
+
+  const [token, setToken] = useState(false);
+
+  // if (!token) {
+  //   return <Login setToken={setToken} />;
+  // }
 
   return (
     <SpeakerContext.Provider value={confValue}>

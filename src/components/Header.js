@@ -9,7 +9,7 @@ export default function Header() {
       <img
         className='ui image'
         alt='logo speakers 237'
-        src='/images/banner.png'
+        // src='/images/banner.png'
       />
       <div className='ui container'>
         <div className='ui mini menu'>
