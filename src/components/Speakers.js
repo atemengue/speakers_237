@@ -1,11 +1,11 @@
 /** @format */
 
-import React, { useEffect, useState, useMemo, useContext } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import SpeakerList from './SpeakerList';
 
 import axios from 'axios';
-import UserPlaceHolder from './UserPlaceHolder';
 import { SpeakerContext } from '../App';
+import UserPlaceHolder from './UserPlaceHolder';
 
 const Speakers = ({ data }) => {
   const [results, setResults] = useState([]);
@@ -38,7 +38,7 @@ const Speakers = ({ data }) => {
   const fetchSpeakerData = async () => {
     try {
       const response = await axios.get(
-        'https://server-speakers.herokuapp.com/speakers'
+        'http://localhost:3001/speakers'
       );
       setResults(response.data);
       setIsLoading(false);

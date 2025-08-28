@@ -1,7 +1,7 @@
 /** @format */
 
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Sessions from './Sessions';
 
@@ -16,7 +16,7 @@ export default function SpeakerDetail() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://server-speakers.herokuapp.com/speakers/${idSpeaker}`
+        `http://localhost:3001/speakers/${idSpeaker}`
       );
       setSpeakerData(response.data);
       setIsLoading(false);
